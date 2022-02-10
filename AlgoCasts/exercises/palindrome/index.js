@@ -7,6 +7,28 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// 方法1
+// function palindrome(str) {
+//    return  str === Array.from(str).reverse().join('')
+// }
+
+// 方法2 字符串除2得出长度进行比对
+// function palindrome(str) {
+//     // 首先除于2，去除商
+//     const quotient = Math.floor(str.length / 2) // 商数
+//     let count = 0;
+//     for(i=0; i < quotient; i++) {
+//         if(str[i] !== str[str.length -1 -i]) {
+//             return false
+//         }
+//     }
+//     return true
+// }
+
+// 方法3使用 ES6 Array.every() 方法
+function palindrome(str) {
+    return str.split('').every((char, i)=> char === str[str.length - i -1])
+}
+
 
 module.exports = palindrome;
